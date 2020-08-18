@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<scene version="0.5.0">
+
+	<integrator type="multichannel">
+		<integrator type="direct"/>
+		<integrator type="field">
+			<string name="field" value="shNormal"/>
+		</integrator>
+		<integrator type="field">
+			<string name="field" value="position"/>
+			<spectrum name="undefined" value="-100000.0"/>
+		</integrator>
+	</integrator>
+
+	<shape type="sphere">
+		<point name="center" x="0" y="0" z="0"/>
+		<bsdf type="diffuse"/>
+		<float name="radius" value="1"/>
+	</shape>
+
+	<sensor type="thinlens">
+		<transform name="toWorld">
+			<lookat origin="0, 0, 4" target="0, 0, 0" up="0, 1, 0"/>
+		</transform>
+		<float name="focusDistance" value="1"/>
+		<float name="apertureRadius" value="0.1"/>
+
+		<sampler type="ldsampler">
+			<integer name="sampleCount" value="512"/>
+		</sampler>
+
+		<film type="hdrfilm">
+			<integer name="width" value="320"/>
+			<integer name="height" value="320"/>
+			<boolean name="highQualityEdges" value="true"/>
+            <string name="pixelFormat" value="luminance,rgb,rgb"/>
+            <string name="channelNames" value="intensity,normal,position"/>
+			<string name="componentFormat" value="float32"/>
+		</film>
+	</sensor>
+
+</scene>
