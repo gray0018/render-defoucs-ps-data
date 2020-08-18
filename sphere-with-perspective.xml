@@ -19,13 +19,11 @@
 	</shape>
 
 	<!-- camera -->
-	<sensor type="thinlens">
+	<sensor type="perspective">
 		<transform name="toWorld">
-			<lookat origin="0, 0, 5" target="0, 0, 0" up="0, 1, 0"/>
+			<lookat origin="0, 0, 20" target="0, 0, 0" up="0, 1, 0"/>
 		</transform>
 		<string name="focalLength" value="50mm"/>
-		<float name="focusDistance" value="1"/>
-		<float name="apertureRadius" value="0.01"/>
 
 		<sampler type="ldsampler">
 			<integer name="sampleCount" value="128"/>
